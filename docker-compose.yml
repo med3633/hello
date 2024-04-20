@@ -2,7 +2,7 @@ services:
   helloworld:
     container_name: helloword
     image: crccheck/hello-world
-
+#######
   nginx:
     container_name: nginx
     restart: unless-stopped
