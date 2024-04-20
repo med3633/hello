@@ -1,6 +1,6 @@
 services:
   helloworld:
-    container_nanme: helloword
+    container_name: helloword
     image: crccheck/hello-world
 
   nginx:
