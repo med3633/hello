@@ -6,7 +6,7 @@ services:
   nginx:
     container_name: nginx
     restart: unless-stopped
-    image: nginx
+    image: nginx:latest
     ports:
       - 80:80
       - 443:443
@@ -18,7 +18,7 @@ services:
 
 #container certbot
   certbot:
-    image: certbot/certbot
+    image: certbot/certbot:latest
     container_name: certbot
     volumes:
 # for ssl
