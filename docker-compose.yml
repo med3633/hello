@@ -1,25 +1,27 @@
 services:
-    helloworld:
-        container_name: helloworld
-        image: crccheck/hello-world
+  helloworld:
+    container_nanme: helloword
+    image: crccheck/hello-world
 
-    nginx:
-        container_name: nginx
-        restart: unless-stopped
-        image: nginx
-        ports:
-            - 80:80
-            - 443:443
-        volumes:
-            - ./certbot/conf:/etc/letsencrypt
-            - ./certbot/www:/var/www/certbot
-            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+  nginx:
+    container_name: nginx
+    restart: unless-stopped
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+# for ssl
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
 
-            
-    certbot:
-        image: certbot/certbot
-        container_name: certbot
-        volumes: 
-            - ./certbot/conf:/etc/letsencrypt
-            - ./certbot/www:/var/www/certbot
-        command: certonly --webroot -w /var/www/certbot --force-renewal --email blibechmedamine@gmail.com -d amine123.ddns.net --agree-tos
+#container certbot
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+# for ssl
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    command: certonly --webroot -w /var/www/certbot --force-renenel --email blibechmedamine@gmail.com -d amine123x.ddns.net --agree-tos
