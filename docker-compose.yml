@@ -24,4 +24,4 @@ services:
 # for ssl
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
-    command: certonly --webroot -w /var/www/certbot --force-renenel --email blibechmedamine@gmail.com -d amine123x.ddns.net --agree-tos
+    command: certonly --webroot -w /var/www/certbot --force-renenel --email blibechmedamine@gmail.com -d amine123.ddns.net --agree-tos
