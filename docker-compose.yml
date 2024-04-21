@@ -9,18 +9,16 @@ services:
     image: nginx:latest
     ports:
       - 80:80
-      - 443:443
+      # - 443:443
     volumes:
-      - ./nginx/conf/:/etc/nginx/conf.d/:ro
-      - ./certbot/www:/var/www/certbot/:ro
-      - ./certbot/conf/:/etc/nginx/ssl/:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
 
 #container certbot
-  certbot:
-    image: certbot/certbot:latest
-    container_name: certbot
-    volumes:
-# for ssl
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
-    command: certonly --webroot -w /var/www/certbot/ --force-renenel --email blibechmedamine@gmail.com -d amine123.ddns.net --agree-tos
+#   certbot:
+#     image: certbot/certbot:latest
+#     container_name: certbot
+#     volumes:
+# # for ssl
+#       - ./certbot/www/:/var/www/certbot/:rw
+#       - ./certbot/conf/:/etc/letsencrypt/:rw
+#     command: certonly --webroot -w /var/www/certbot/ --force-renenel --email blibechmedamine@gmail.com -d amine123.ddns.net --agree-tos
